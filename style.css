@@ -1,0 +1,48 @@
+/* Estilização Geral */
+body {
+    background-color: #e0f7fa; /* Cor de fundo 1 */
+    color: #006064;            /* Cor do texto */
+    font-size: 18px;           /* Tamanho da fonte */
+    text-align: center;        /* Centraliza tudo */
+    margin: 50px;              /* Espaçamento externo */
+}
+
+.autor {
+    font-size: 14px;
+    color: #00838f;
+}
+
+/* Botão Bonito */
+.botao {
+    background-color: #00838f; /* Cor de fundo 2 (combina com a 1) */
+    color: white;
+    padding: 10px 20px;        /* Espaçamento interno */
+    border-radius: 8px;        /* Cantos arredondados */
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Efeito Hover no Botão */
+.botao:hover {
+    background-color: #005662;
+}
+
+/* Esconde o quadradinho do checkbox */
+#revelar {
+    display: none;
+}
+
+/* Esconde a resposta no início */
+.resposta {
+    display: none;
+    margin-top: 20px;
+}
+
+.resposta img {
+    border-radius: 10px;        /* Cantos arredondados na imagem */
+}
+
+/* LÓGICA DO JOGO: Quando clicar no botão, mostra a resposta */
+#revelar:checked ~ .resposta {
+    display: block;
+}
