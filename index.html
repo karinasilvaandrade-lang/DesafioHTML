@@ -10,10 +10,10 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: background-color 0.4s, color 0.4s, border-color 0.4s;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
         }
 
-        /* Cores Padrão (Primavera) */
+        /* Variáveis de Cores */
         :root {
             --bg-main: #fbf5de;
             --header-bg: #5c8e32;
@@ -103,7 +103,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Estilização dos Botões Interativos */
         .controls-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -141,7 +140,30 @@
             margin-top: 1rem;
         }
 
-        /* Painel de Status */
+        .color-pickers {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .color-picker-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: bold;
+        }
+
+        input[type="color"] {
+            border: 2px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            background: none;
+        }
+
         .status-bar {
             display: flex;
             justify-content: space-around;
@@ -167,11 +189,12 @@
 
     <header>
         <h1>Stardew Valley Interativo</h1>
-        <p>Gerencie sua fazenda e altere as estações!</p>
+        <p>Gerencie sua fazenda e personalize o visual!</p>
     </header>
 
     <div class="container">
         
+        <!-- Painel com Ação e Contador -->
         <section class="pixel-card">
             <h2>Status do Fazendeiro</h2>
             <div class="status-bar">
@@ -184,15 +207,34 @@
             <button class="btn" id="btn-rest" style="margin-top: 0.5rem; width: 100%;">Descansar na Cama (Recuperar Energia)</button>
         </section>
 
+        <!-- Troca de Estação -->
         <section class="pixel-card">
             <h2>Mudar a Estação</h2>
-            <p>Selecione uma estação para alterar o clima do site:</p>
+            <p>Selecione um tema pronto baseado nas estações:</p>
             
             <div class="controls-grid">
                 <button class="btn" onclick="mudarEstacao('primavera')">Primavera</button>
                 <button class="btn" onclick="mudarEstacao('verao')">Verão</button>
                 <button class="btn" onclick="mudarEstacao('outono')">Outono</button>
                 <button class="btn" onclick="mudarEstacao('inverno')">Inverno</button>
+            </div>
+        </section>
+
+        <!-- Personalizador de Cores -->
+        <section class="pixel-card">
+            <h2>Personalizar Cores Manualmente</h2>
+            <p>Escolha as cores exatas que deseja para o fundo e para os cartões:</p>
+            
+            <div class="color-pickers">
+                <div class="color-picker-item">
+                    <label for="bg-color">Cor de Fundo:</label>
+                    <input type="color" id="bg-color" value="#fbf5de">
+                </div>
+                <div class="color-picker-item">
+                    <label for="card-color">Cor dos Cartões:</label>
+                    <input type="color" id="card-color" value="#fff9e6">
+                </div>
+                <button class="btn" onclick="resetarCores()">Resetar Cores</button>
             </div>
         </section>
 
@@ -232,10 +274,31 @@
 
         // Função dos botões de Estação
         function mudarEstacao(estacao) {
-            document.body.className = ''; // Limpa classes anteriores
+            document.body.className = '';
+            // Limpa estilos customizados ao escolher uma estação
+            document.documentElement.style.removeProperty('--bg-main');
+            document.documentElement.style.removeProperty('--card-bg');
+
             if (estacao !== 'primavera') {
                 document.body.classList.add(estacao);
             }
+        }
+
+        // Alterar cor de fundo manualmente
+        document.getElementById('bg-color').addEventListener('input', function(e) {
+            document.documentElement.style.setProperty('--bg-main', e.target.value);
+        });
+
+        // Alterar cor do cartão manualmente
+        document.getElementById('card-color').addEventListener('input', function(e) {
+            document.documentElement.style.setProperty('--card-bg', e.target.value);
+        });
+
+        // Resetar para as cores padrão
+        function resetarCores() {
+            mudarEstacao('primavera');
+            document.getElementById('bg-color').value = '#fbf5de';
+            document.getElementById('card-color').value = '#fff9e6';
         }
     </script>
 
