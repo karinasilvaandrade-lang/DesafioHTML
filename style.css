@@ -1,10 +1,10 @@
-/* Estilização Geral da Página */
+/* Configurações Gerais */
 body {
-    background-color: #1a1a2e; /* Cor de fundo principal */
-    color: #ffffff;            /* Cor do texto principal */
+    background-color: #1a1a2e; /* Cor de fundo 1 */
+    color: #ffffff;            /* Cor do texto */
     font-family: Arial, sans-serif;
-    text-align: center;        /* Centraliza os elementos */
-    margin: 20px;              /* Espaçamento externo */
+    text-align: center;        /* Centraliza os textos */
+    margin: 30px;              /* Espaçamento externo */
 }
 
 .autor {
@@ -14,70 +14,65 @@ body {
 
 h1 {
     font-size: 32px;
-    color: #00ff88;            /* Cor de destaque */
+    color: #00ff88;            /* Cor em destaque combinando */
 }
 
 .descricao {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-/* Painel com Contador e Botão */
-.painel {
     font-size: 18px;
-    margin-bottom: 20px;
-}
-
-#btn-reiniciar {
-    background-color: #00ff88; /* Segunda cor principal */
-    color: #1a1a2e;
-    font-size: 16px;
-    padding: 10px 20px;        /* Espaçamento interno */
-    border: none;
-    border-radius: 8px;        /* Cantos arredondados */
-    cursor: pointer;
-    margin-left: 10px;        /* Espaçamento externo */
-}
-
-/* Efeito Hover no Botão */
-#btn-reiniciar:hover {
-    background-color: #00cc6a;  /* Muda a cor ao passar o mouse */
+    margin-bottom: 25px;
 }
 
 /* Tabuleiro Centralizado */
 .tabuleiro {
-    display: grid;
-    grid-template-columns: repeat(4, 70px);
-    gap: 12px;
-    justify-content: center;   /* Centraliza o grid horizontalmente */
-    background-color: #16213e;  /* Cor de fundo do container */
+    background-color: #16213e;  /* Cor de fundo 2 */
+    width: 260px;
+    margin: 0 auto;             /* Centraliza o container na tela */
     padding: 20px;              /* Espaçamento interno */
-    margin: 0 auto;             /* Centraliza a div na tela */
-    width: max-content;
     border-radius: 15px;        /* Cantos arredondados */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
 }
 
-/* Estilização das Cartas */
+/* Esconde as caixinhas de controle do checkbox */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Estilização da Carta */
 .carta {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     background-color: #0f3460;
-    font-size: 32px;
+    border-radius: 10px;        /* Cantos arredondados */
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;        /* Cantos arredondados nas cartas */
+    font-size: 40px;
     cursor: pointer;
-    user-select: none;
 }
 
-/* Efeito Hover nas Cartas */
+/* Efeito :hover ao passar o mouse na carta */
 .carta:hover {
     background-color: #1f4068;
 }
 
-/* Estado de Carta Revelada ou Encontrada */
-.carta.revelada, .carta.encontrada {
-    background-color: #00ff88;
-    cursor: default;
+/* Esconde o emoji por padrão */
+.frente {
+    display: none;
+}
+
+/* LÓGICA DO JOGO EM CSS: */
+/* Quando o checkbox é marcado (:checked), esconde a interrogação e mostra o emoji */
+input[type="checkbox"]:checked + .carta .costas {
+    display: none;
+}
+
+input[type="checkbox"]:checked + .carta .frente {
+    display: block;
+}
+
+input[type="checkbox"]:checked + .carta {
+    background-color: #00ff88;  /* Muda a cor da carta quando virada */
 }

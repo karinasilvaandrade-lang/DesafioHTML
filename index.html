@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Jogo da Memória dos Emojis</title>
+    <title>Jogo da Memória - HTML/CSS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,19 +14,46 @@
     <h1>Jogo da Memória 🧠</h1>
 
     <!-- Texto Explicativo -->
-    <p class="descricao">Clique nas cartas para virá-las e encontre todos os pares de emojis iguais!</p>
+    <p class="descricao">Clique nas cartas para revelá-las e encontrar os pares iguais de emojis!</p>
 
-    <!-- Painel de Informações -->
-    <div class="painel">
-        <p>Tentativas: <span id="tentativas">0</span></p>
-        <button id="btn-reiniciar" onclick="reiniciarJogo()">Reiniciar Jogo</button>
+    <!-- Tabuleiro do Jogo -->
+    <div class="tabuleiro">
+
+        <!-- Par 1: Gato 🐱 -->
+        <div class="card-box">
+            <input type="checkbox" id="c1">
+            <label for="c1" class="carta">
+                <span class="costas">❓</span>
+                <span class="frente">🐱</span>
+            </label>
+        </div>
+
+        <div class="card-box">
+            <input type="checkbox" id="c2">
+            <label for="c2" class="carta">
+                <span class="costas">❓</span>
+                <span class="frente">🐱</span>
+            </label>
+        </div>
+
+        <!-- Par 2: Cachorro 🐶 -->
+        <div class="card-box">
+            <input type="checkbox" id="c3">
+            <label for="c3" class="carta">
+                <span class="costas">❓</span>
+                <span class="frente">🐶</span>
+            </label>
+        </div>
+
+        <div class="card-box">
+            <input type="checkbox" id="c4">
+            <label for="c4" class="carta">
+                <span class="costas">❓</span>
+                <span class="frente">🐶</span>
+            </label>
+        </div>
+
     </div>
 
-    <!-- Tabuleiro das Cartas -->
-    <div class="tabuleiro" id="tabuleiro">
-        <!-- As cartas serão criadas dinamicamente via JavaScript -->
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
