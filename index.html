@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cão Fiapo de Manga</title>
+    <title>Trend do TikTok: Dormiria Aqui?</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,41 +11,38 @@
     <!-- Autor -->
     <p class="autor">Desenvolvido por: [SEU NOME AQUI]</p>
 
-    <!-- Título Principal -->
-    <h1>O Lendário Cão "Fiapo de Manga" 🐶🥭</h1>
+    <!-- Título Principal estilo Trend TikTok -->
+    <h1>Você dormiria nesse quarto? 🛏️✨</h1>
 
     <!-- Descrição -->
     <p class="descricao">
-        O "Fiapo de Manga" é o patrimônio cultural das ruas brasileiras! São aqueles cães (geralmente vira-latas) com pelo amarelado, espetado e bagunçado, parecendo exatamente o caroço de uma manga depois de comida.
+        Quarto 1 de 10! Vote abaixo para dizer se você passaria a noite aqui ou se sairia correndo.
     </p>
 
-    <!-- Cartão do Jogo -->
-    <form class="container-jogo">
+    <!-- Cartão do Quarto -->
+    <form class="card-quarto">
         
-        <h2>Jogo: Penteie o Fiapo de Manga 🪮</h2>
-        <p class="instrucao">Clique nos botões abaixo para tentar arrumar o cabelo espetado dele!</p>
+        <!-- Número do Quarto -->
+        <div class="tag-numero">Quarto 1 / 10</div>
 
-        <!-- Imagem Ilustrativa -->
-        <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=400" alt="Cachorro Fiapo de Manga" class="imagem-tema">
+        <!-- Imagem do Quarto -->
+        <img src="https://images.unsplash.com/photo-1540518614846-7ede433c5172?w=500" alt="Quarto Aconchegante" class="imagem-quarto">
 
-        <!-- Área de Ação do Jogo -->
-        <div class="area-interativa">
-            <input type="radio" name="penteado" id="pente1" checked>
-            <input type="radio" name="penteado" id="pente2">
-            <input type="radio" name="penteado" id="pente3">
+        <!-- Sistema de Votação (Radio Buttons) -->
+        <div class="opcoes-voto">
+            <input type="radio" name="voto" id="sim">
+            <label for="sim" class="btn-voto btn-sim">😴 Dormiria Com Certeza!</label>
 
-            <!-- Estado do Cachorro conforme o clique -->
-            <div class="status-cao pelo-original">🐶 Pelo: 100% Bagunçado!</div>
-            <div class="status-cao pelo-penteado">✨ Pelo: Penteado (+10 Pontos)</div>
-            <div class="status-cao pelo-estiloso">😎 Pelo: Na Régua (+50 Pontos)</div>
-
-            <!-- Botões para Jogar -->
-            <div class="botoes">
-                <label for="pente2" class="btn-acao">🪮 Passar o Pente</label>
-                <label for="pente3" class="btn-acao btn-gel">🧴 Passar Gel</label>
-                <button type="reset" class="btn-reset">🔄 Bagunçar De Novo</button>
-            </div>
+            <input type="radio" name="voto" id="nao">
+            <label for="nao" class="btn-voto btn-nao">🚫 Nem A Pau!</label>
         </div>
+
+        <!-- Mensagens de Resposta -->
+        <div class="resposta res-sim">Opção registrada: Você DORMIRIA aqui! 🛌✅</div>
+        <div class="resposta res-nao">Opção registrada: Você NÃO DORMIRIA aqui! 🏃‍♂️💨</div>
+
+        <!-- Botão para Próximo/Reset -->
+        <button type="reset" class="btn-reset">🔄 Mudar de Quarto / Mudar Voto</button>
 
     </form>
 

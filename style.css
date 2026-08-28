@@ -1,7 +1,7 @@
-/* Configurações Globais da Página */
+/* Estilo Global inspirado na vibe escura do TikTok */
 body {
-    background-color: #0f172a; /* Fundo escuro */
-    color: #f8fafc;            /* Texto claro */
+    background-color: #121212;
+    color: #ffffff;
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
@@ -10,140 +10,141 @@ body {
 
 .autor {
     font-size: 14px;
-    color: #eab308;             /* Cor amarela de manga */
+    color: #00f2fe; /* Azul estilo TikTok */
     margin-bottom: 5px;
 }
 
 h1 {
-    font-size: 32px;
-    color: #eab308;             /* Destaque em amarelo manga */
+    font-size: 28px;
+    color: #ffffff;
+    text-shadow: 2px 2px #ff0050, -2px -2px #00f2fe; /* Efeito 3D Glitch TikTok */
     margin-top: 5px;
 }
 
 .descricao {
-    font-size: 16px;
-    max-width: 600px;
-    margin: 0 auto 20px auto;
-    line-height: 1.5;
-    color: #cbd5e1;
+    font-size: 15px;
+    color: #cccccc;
+    margin-bottom: 20px;
 }
 
-/* Cartão do Jogo (Centralizado) */
-.container-jogo {
-    background-color: #1e293b;
-    width: 320px;
+/* Cartão Principal do Quarto */
+.card-quarto {
+    background-color: #1e1e1e;
+    width: 330px;
     margin: 0 auto;
     padding: 20px;
     border-radius: 16px;
-    border: 3px solid #eab308;  /* Borda amarela */
+    border: 2px solid #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
+    position: relative;
 }
 
-h2 {
-    font-size: 18px;
-    color: #38bdf8;
-    margin-top: 0;
+/* Tag mostrando o número (1 de 10) */
+.tag-numero {
+    background-color: #ff0050; /* Rosa estilo TikTok */
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 12px;
 }
 
-.instrucao {
-    font-size: 13px;
-    color: #94a3b8;
-}
-
-.imagem-tema {
+/* Imagem do Quarto */
+.imagem-quarto {
     width: 100%;
-    height: 180px;
+    height: 220px;
     object-fit: cover;
     border-radius: 12px;
-    border: 2px solid #eab308;
-    margin: 10px 0;
-    transition: transform 0.3s;
+    margin-bottom: 15px;
 }
 
-/* Esconde as caixinhas de seleção radio */
+/* Esconde o rádio button padrão */
 input[type="radio"] {
     display: none;
 }
 
-/* Status do Cachorro */
-.status-cao {
-    display: none;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.pelo-original {
-    background-color: #854d0e;
-    color: #fef08a;
-}
-
-.pelo-penteado {
-    background-color: #0284c7;
-    color: #ffffff;
-}
-
-.pelo-estiloso {
-    background-color: #16a34a;
-    color: #ffffff;
-}
-
-/* Lógica do Jogo em CSS */
-#pente1:checked ~ .pelo-original { display: block; }
-#pente2:checked ~ .pelo-penteado { display: block; }
-#pente3:checked ~ .pelo-estiloso { display: block; }
-
-/* Efeito na imagem ao arrumar o cão */
-#pente2:checked ~ .imagem-tema,
-#pente3:checked ~ .imagem-tema {
-    transform: scale(1.03);
-}
-
-/* Estilo dos Botões */
-.botoes {
+/* Área dos Botões de Voto */
+.opcoes-voto {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
-.btn-acao {
-    background-color: #eab308;
-    color: #0f172a;
-    font-size: 14px;
+.btn-voto {
+    padding: 12px;
+    border-radius: 10px;
     font-weight: bold;
-    padding: 10px;
-    border-radius: 8px;
+    font-size: 14px;
     cursor: pointer;
     transition: 0.2s;
+    user-select: none;
 }
 
-.btn-acao:hover {
-    background-color: #ca8a04;
-}
-
-.btn-gel {
-    background-color: #38bdf8;
-    color: #0f172a;
-}
-
-.btn-gel:hover {
-    background-color: #0284c7;
+.btn-sim {
+    background-color: #22c55e;
     color: #ffffff;
 }
 
-.btn-reset {
+.btn-sim:hover {
+    background-color: #16a34a;
+}
+
+.btn-nao {
     background-color: #ef4444;
     color: #ffffff;
-    font-size: 13px;
-    padding: 8px;
+}
+
+.btn-nao:hover {
+    background-color: #dc2626;
+}
+
+/* Mensagens de Feedback */
+.resposta {
+    display: none;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.res-sim {
+    background-color: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+    border: 1px solid #22c55e;
+}
+
+.res-nao {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+    border: 1px solid #ef4444;
+}
+
+/* Lógica de exibição com base no voto assinalado */
+#sim:checked ~ .res-sim {
+    display: block;
+}
+
+#nao:checked ~ .res-nao {
+    display: block;
+}
+
+/* Botão de Reset/Reiniciar */
+.btn-reset {
+    background-color: #333333;
+    color: #aaaaaa;
     border: none;
+    padding: 8px 12px;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 5px;
+    margin-top: 15px;
+    font-size: 12px;
 }
 
 .btn-reset:hover {
-    background-color: #dc2626;
+    background-color: #444444;
+    color: #ffffff;
 }
