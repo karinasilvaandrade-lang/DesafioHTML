@@ -1,59 +1,76 @@
-/* Configurações Globais */
+/* Configurações Globais da Página */
 body {
-    background-color: #e2e8f0; /* Cor de fundo clara para destacar as cartas brancas */
+    background-color: #e2e8f0; /* Cor de fundo clara */
     color: #1e293b;            /* Cor do texto principal */
     font-family: Arial, sans-serif;
-    text-align: center;        /* Centraliza os textos da página */
+    text-align: center;        /* Centraliza os elementos */
     margin: 0;
     padding: 20px;
 }
 
 .autor {
     font-size: 14px;
-    color: #1d4ed8;             /* Cor azul combinando com a borda */
+    color: #1d4ed8;             /* Cor azul combinando */
     margin-bottom: 5px;
 }
 
 h1 {
     font-size: 32px;
-    color: #1d4ed8;             /* Cor principal do título */
+    color: #1d4ed8;             /* Cor de destaque */
     margin-top: 5px;
 }
 
 .descricao {
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .imagem-tema {
-    width: 200px;
-    height: 80px;
+    width: 180px;
+    height: 70px;
     object-fit: cover;
-    border-radius: 10px;        /* Cantos arredondados na imagem */
-    margin-bottom: 20px;
+    border-radius: 10px;        /* Cantos arredondados */
+    margin-bottom: 15px;
+}
+
+/* Botão de Reiniciar funcional com HTML/CSS (Dentro de um <form>) */
+.btn-reiniciar {
+    background-color: #2563eb;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 12px 24px;        /* Espaçamento interno */
+    margin-bottom: 20px;       /* Espaçamento externo */
+    border: none;
+    border-radius: 8px;        /* Cantos arredondados */
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Efeito :hover no Botão */
+.btn-reiniciar:hover {
+    background-color: #1d4ed8;  /* Muda de cor ao passar o mouse */
 }
 
 /* Tabuleiro Centralizado em Grade */
 .tabuleiro {
     display: grid;
-    grid-template-columns: repeat(4, 160px); /* 4 colunas de cartas grandes */
-    gap: 15px;                               /* Espaço entre as cartas */
+    grid-template-columns: repeat(2, 160px); /* 2 Colunas de cartas grandes */
+    gap: 20px;                               /* Espaço entre as cartas */
     justify-content: center;                 /* Centraliza a grade na tela */
-    margin: 0 auto;                          /* Espaçamento externo automático */
-    max-width: 720px;
+    margin: 0 auto;                          /* Alinhamento central */
 }
 
-/* Esconde as caixinhas do checkbox */
+/* Esconde as caixinhas de marcadores */
 input[type="checkbox"] {
     display: none;
 }
 
-/* Cartas Grandes em Formato Retangular (Estilo foto) */
+/* Cartas Grandes em Formato Retangular (Estilo Foto) */
 .carta {
     width: 160px;
-    height: 220px;              /* Altura maior que a largura (retangular) */
-    background-color: #ffffff;  /* Fundo branco como na imagem */
-    border: 6px solid #2563eb;  /* Borda azul grossa igual a da imagem */
+    height: 220px;              /* Formato retangular grande */
+    background-color: #ffffff;  /* Fundo branco */
+    border: 6px solid #2563eb;  /* Borda azul grossa */
     border-radius: 12px;        /* Cantos arredondados */
     display: flex;
     align-items: center;        /* Centraliza o emoji verticalmente */
@@ -64,36 +81,66 @@ input[type="checkbox"] {
 
 /* Efeito :hover nas Cartas */
 .carta:hover {
-    border-color: #1d4ed8;      /* Borda azul mais escura ao passar o mouse */
+    border-color: #1d4ed8;
     background-color: #f8fafc;
 }
 
-/* Tamanho dos Emojis dentro das Cartas */
+/* Esconde a frente por padrão */
+.frente {
+    display: none;
+    font-size: 90px;           /* Emoji gigante centralizado */
+}
+
 .costas {
     font-size: 50px;
     color: #94a3b8;
 }
 
-.frente {
-    display: none;
-    font-size: 90px;           /* Emoji gigante centralizado */
-    line-height: 1;
+/* 1. CARTAS CERTAS: Ficam Abertas e Verdes ao clicar */
+input[type="checkbox"]:checked + .carta-certa {
+    border-color: #16a34a;      /* Borda verde */
+    background-color: #dcfce7;
 }
 
-/* LÓGICA DO JOGO EM CSS */
-/* Quando a carta for clicada (:checked) */
-
-/* Esconde o símbolo de interrogação */
-input[type="checkbox"]:checked + .carta .costas {
+input[type="checkbox"]:checked + .carta-certa .costas {
     display: none;
 }
 
-/* Exibe o emoji gigante no centro */
-input[type="checkbox"]:checked + .carta .frente {
+input[type="checkbox"]:checked + .carta-certa .frente {
     display: block;
 }
 
-/* Destaca a borda da carta virada */
-input[type="checkbox"]:checked + .carta {
-    border-color: #16a34a;      /* Borda verde para indicar que foi virada */
+/* 2. CARTAS ERRADAS: Triggers da Animação em Vermelho + Desvirar */
+input[type="checkbox"]:checked + .carta-errada {
+    animation: efeitoErro 1.5s forwards;
+}
+
+input[type="checkbox"]:checked + .carta-errada .costas {
+    animation: escondeCostas 1.5s forwards;
+}
+
+input[type="checkbox"]:checked + .carta-errada .frente {
+    animation: mostraFrente 1.5s forwards;
+}
+
+/* ANIMAÇÕES EM CSS PURO (Sem JavaScript) */
+
+/* Faz a carta ficar VERMELHA e depois voltar ao azul original */
+@keyframes efeitoErro {
+    0%   { border-color: #dc2626; background-color: #fee2e2; } /* Fica vermelha */
+    70%  { border-color: #dc2626; background-color: #fee2e2; } /* Segura a cor vermelha */
+    100% { border-color: #2563eb; background-color: #ffffff; } /* Voltar ao normal */
+}
+
+/* Mostra o emoji por 1.2 segundos e depois desvira a carta */
+@keyframes mostraFrente {
+    0%   { display: block; }
+    80%  { display: block; }
+    100% { display: none; }
+}
+
+@keyframes escondeCostas {
+    0%   { display: none; }
+    80%  { display: none; }
+    100% { display: block; }
 }

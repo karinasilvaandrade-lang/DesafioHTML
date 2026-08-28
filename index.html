@@ -16,84 +16,55 @@
 
     <!-- Texto Explicativo -->
     <p class="descricao">
-        Encontre os pares de emojis iguais! Clique em cada carta para revelar o emoji gigante centralizado.
+        Encontre os pares! Clique nas cartas. Se errar, ela pisca em vermelho e desvira sozinha.
     </p>
 
     <!-- Imagem Ilustrativa -->
     <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400" alt="Emojis" class="imagem-tema">
 
-    <!-- Container do Jogo (Grade de Cartas Grandes) -->
-    <div class="tabuleiro">
+    <!-- Botão de Reiniciar em HTML/CSS puro (Reseta os checkboxes da página) -->
+    <form class="container-jogo">
+        <button type="reset" class="btn-reiniciar">🔄 Reiniciar Jogo</button>
 
-        <!-- Par 1: Sorrindo 😀 -->
-        <div class="card-box">
-            <input type="checkbox" id="c1">
-            <label for="c1" class="carta">
-                <span class="costas">❓</span>
-                <span class="frente">😀</span>
-            </label>
+        <!-- Tabuleiro com as Cartas Grandes -->
+        <div class="tabuleiro">
+
+            <!-- Par 1: Carta Certa (Gato 🐱) -->
+            <div class="card-box">
+                <input type="checkbox" id="c1">
+                <label for="c1" class="carta carta-certa">
+                    <span class="costas">❓</span>
+                    <span class="frente">🐱</span>
+                </label>
+            </div>
+
+            <div class="card-box">
+                <input type="checkbox" id="c2">
+                <label for="c2" class="carta carta-certa">
+                    <span class="costas">❓</span>
+                    <span class="frente">🐱</span>
+                </label>
+            </div>
+
+            <!-- Par 2: Carta Errada (Cachorro 🐶 - Fica vermelha e desvira) -->
+            <div class="card-box">
+                <input type="checkbox" id="c3">
+                <label for="c3" class="carta carta-errada">
+                    <span class="costas">❓</span>
+                    <span class="frente">🐶</span>
+                </label>
+            </div>
+
+            <div class="card-box">
+                <input type="checkbox" id="c4">
+                <label for="c4" class="carta carta-errada">
+                    <span class="costas">❓</span>
+                    <span class="frente">🐶</span>
+                </label>
+            </div>
+
         </div>
-
-        <div class="card-box">
-            <input type="checkbox" id="c2">
-            <label for="c2" class="carta">
-                <span class="costas">❓</span>
-                <span class="frente">😀</span>
-            </label>
-        </div>
-
-        <!-- Par 2: Chorando de Rir 😂 -->
-        <div class="card-box">
-            <input type="checkbox" id="c3">
-            <label for="c3" class="carta">
-                <span class="costas">❓</span>
-                <span class="frente">😂</span>
-            </label>
-        </div>
-
-        <div class="card-box">
-            <input type="checkbox" id="c4">
-            <label for="c4" class="carta">
-                <span class="costas">❓</span>
-                <span class="frente">😂</span>
-            </label>
-        </div>
-
-        <!-- Par 3: Óculos de Sol 🕶️ -->
-        <div class="card-box">
-            <input type="checkbox" id="c5">
-            <label for="c5" class="carta">
-                <span class="costas">❓</span>
-                <span class="frente">😎</span>
-            </label>
-        </div>
-
-        <div class="card-box">
-            <input type="checkbox" id="c6">
-            <label for="c6" class="carta">
-                <span class="costas">❓</span>
-                <span class="frente">😎</span>
-            </label>
-        </div>
-
-        <!-- Par 4: Anjinho 😇 -->
-        <div class="card-box">
-            <input type="checkbox" id="c7">
-            <label for="c7" class="carta">
-                <span class="costas">❓</span>
-                <span class="frente">😇</span>
-            </label>
-        </div>
-
-        <div class="card-box">
-            <input type="checkbox" id="c8">
-            <label for="c8" class="carta">
-                <span class="costas">❓</span>
-                <span class="frente">😇</span>
-            </label>
-        </div>
-
-    </div>
+    </form>
 
 </body>
 </html>
