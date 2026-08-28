@@ -2,69 +2,55 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo da Memória dos Emojis</title>
+    <title>Jogo da Velha - HTML/CSS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <p class="autor">Desenvolvido por: [SEU NOME AQUI]</p>
+    <h1>Jogo da Velha</h1>
+    <p class="descricao">Clique nos quadrados para jogar! Alterne entre as marcações.</p>
 
-    <!-- Nome do Autor -->
-    <p class="autor">Desenvolvido por: [Karina]</p>
-
-    <!-- Título Principal -->
-    <h1>Jogo da Memória dos Emojis</h1>
-
-    <!-- Texto Explicativo -->
-    <p class="descricao">
-        Encontre os pares! Clique nas cartas. Se errar, ela pisca em vermelho e desvira sozinha.
-    </p>
-
-    <!-- Imagem Ilustrativa -->
-    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400" alt="Emojis" class="imagem-tema">
-
-    <!-- Botão de Reiniciar em HTML/CSS puro (Reseta os checkboxes da página) -->
-    <form class="container-jogo">
-        <button type="reset" class="btn-reiniciar">🔄 Reiniciar Jogo</button>
-
-        <!-- Tabuleiro com as Cartas Grandes -->
-        <div class="tabuleiro">
-
-            <!-- Par 1: Carta Certa (Gato 🐱) -->
-            <div class="card-box">
+    <form class="tabuleiro">
+        <button type="reset" class="btn-reset">🔄 Reiniciar</button>
+        <div class="grade">
+            <!-- Cada célula tem 2 opções de marcação -->
+            <div class="celula">
                 <input type="checkbox" id="c1">
-                <label for="c1" class="carta carta-certa">
-                    <span class="costas">❓</span>
-                    <span class="frente">🐱</span>
-                </label>
+                <label for="c1" class="quadrado"></label>
             </div>
-
-            <div class="card-box">
+            <div class="celula">
                 <input type="checkbox" id="c2">
-                <label for="c2" class="carta carta-certa">
-                    <span class="costas">❓</span>
-                    <span class="frente">🐱</span>
-                </label>
+                <label for="c2" class="quadrado"></label>
             </div>
-
-            <!-- Par 2: Carta Errada (Cachorro 🐶 - Fica vermelha e desvira) -->
-            <div class="card-box">
+            <div class="celula">
                 <input type="checkbox" id="c3">
-                <label for="c3" class="carta carta-errada">
-                    <span class="costas">❓</span>
-                    <span class="frente">🐶</span>
-                </label>
+                <label for="c3" class="quadrado"></label>
             </div>
-
-            <div class="card-box">
+            <div class="celula">
                 <input type="checkbox" id="c4">
-                <label for="c4" class="carta carta-errada">
-                    <span class="costas">❓</span>
-                    <span class="frente">🐶</span>
-                </label>
+                <label for="c4" class="quadrado"></label>
             </div>
-
+            <div class="celula">
+                <input type="checkbox" id="c5">
+                <label for="c5" class="quadrado"></label>
+            </div>
+            <div class="celula">
+                <input type="checkbox" id="c6">
+                <label for="c6" class="quadrado"></label>
+            </div>
+            <div class="celula">
+                <input type="checkbox" id="c7">
+                <label for="c7" class="quadrado"></label>
+            </div>
+            <div class="celula">
+                <input type="checkbox" id="c8">
+                <label for="c8" class="quadrado"></label>
+            </div>
+            <div class="celula">
+                <input type="checkbox" id="c9">
+                <label for="c9" class="quadrado"></label>
+            </div>
         </div>
     </form>
-
 </body>
 </html>
