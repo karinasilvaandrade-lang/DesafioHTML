@@ -13,7 +13,7 @@
             transition: background-color 0.3s, color 0.3s, border-color 0.3s;
         }
 
-        /* Variáveis de Cores */
+        /* Variáveis de Cores Padrão (Primavera) */
         :root {
             --bg-main: #fbf5de;
             --header-bg: #5c8e32;
@@ -53,6 +53,35 @@
             --card-bg: #f8fcff;
             --border-color: #2d576b;
             --text-color: #1a3847;
+        }
+
+        /* Modo Alto Contraste */
+        body.alto-contraste {
+            --bg-main: #000000;
+            --header-bg: #111111;
+            --header-shadow: #ffff00;
+            --accent-color: #ffff00;
+            --card-bg: #121212;
+            --border-color: #ffffff;
+            --text-color: #ffffff;
+        }
+
+        body.alto-contraste header h1 {
+            color: #ffff00;
+            text-shadow: 2px 2px 0px #000000;
+        }
+
+        body.alto-contraste .btn {
+            background-color: #000000;
+            color: #ffff00;
+            border-color: #ffff00;
+            box-shadow: 2px 2px 0px #ffffff;
+        }
+
+        body.alto-contraste .btn-action {
+            background-color: #ffff00;
+            color: #000000;
+            border-color: #ffffff;
         }
 
         body {
@@ -140,6 +169,16 @@
             margin-top: 1rem;
         }
 
+        .btn-contrast {
+            background-color: #000000;
+            color: #ffffff;
+            border: 3px solid #ffffff;
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
         .color-pickers {
             display: flex;
             gap: 1.5rem;
@@ -220,10 +259,10 @@
             </div>
         </section>
 
-        <!-- Personalizador de Cores -->
+        <!-- Personalizador de Cores e Acessibilidade -->
         <section class="pixel-card">
-            <h2>Personalizar Cores Manualmente</h2>
-            <p>Escolha as cores exatas que deseja para o fundo e para os cartões:</p>
+            <h2>Personalizar Cores e Acessibilidade</h2>
+            <p>Escolha as cores exatas ou ative o modo de alto contraste para melhor leitura:</p>
             
             <div class="color-pickers">
                 <div class="color-picker-item">
@@ -236,6 +275,8 @@
                 </div>
                 <button class="btn" onclick="resetarCores()">Resetar Cores</button>
             </div>
+
+            <button class="btn btn-contrast" onclick="alternarAltoContraste()">👁️ Alternar Alto Contraste</button>
         </section>
 
     </div>
@@ -286,16 +327,26 @@
 
         // Alterar cor de fundo manualmente
         document.getElementById('bg-color').addEventListener('input', function(e) {
+            document.body.classList.remove('alto-contraste');
             document.documentElement.style.setProperty('--bg-main', e.target.value);
         });
 
         // Alterar cor do cartão manualmente
         document.getElementById('card-color').addEventListener('input', function(e) {
+            document.body.classList.remove('alto-contraste');
             document.documentElement.style.setProperty('--card-bg', e.target.value);
         });
 
+        // Alternar Alto Contraste
+        function alternarAltoContraste() {
+            document.documentElement.style.removeProperty('--bg-main');
+            document.documentElement.style.removeProperty('--card-bg');
+            document.body.classList.toggle('alto-contraste');
+        }
+
         // Resetar para as cores padrão
         function resetarCores() {
+            document.body.classList.remove('alto-contraste');
             mudarEstacao('primavera');
             document.getElementById('bg-color').value = '#fbf5de';
             document.getElementById('card-color').value = '#fff9e6';
