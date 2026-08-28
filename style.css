@@ -1,80 +1,99 @@
-/* Configurações Gerais */
+/* Configurações Globais */
 body {
-    background-color: #1a1a2e; /* Cor de fundo 1 */
-    color: #ffffff;            /* Cor do texto */
+    background-color: #e2e8f0; /* Cor de fundo clara para destacar as cartas brancas */
+    color: #1e293b;            /* Cor do texto principal */
     font-family: Arial, sans-serif;
-    text-align: center;        /* Centraliza os textos */
-    margin: 30px;              /* Espaçamento externo */
+    text-align: center;        /* Centraliza os textos da página */
+    margin: 0;
+    padding: 20px;
 }
 
 .autor {
     font-size: 14px;
-    color: #00ff88;
+    color: #1d4ed8;             /* Cor azul combinando com a borda */
+    margin-bottom: 5px;
 }
 
 h1 {
     font-size: 32px;
-    color: #00ff88;            /* Cor em destaque */
+    color: #1d4ed8;             /* Cor principal do título */
+    margin-top: 5px;
 }
 
 .descricao {
-    font-size: 18px;
-    margin-bottom: 25px;
+    font-size: 16px;
+    margin-bottom: 20px;
 }
 
-/* Tabuleiro Centralizado com tamanho Fixo */
+.imagem-tema {
+    width: 200px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;        /* Cantos arredondados na imagem */
+    margin-bottom: 20px;
+}
+
+/* Tabuleiro Centralizado em Grade */
 .tabuleiro {
-    background-color: #16213e;  /* Cor de fundo 2 */
-    width: 260px;               /* Largura fixa para caber 2 cartas por linha */
-    margin: 0 auto;             /* Centraliza o container na tela */
-    padding: 20px;              /* Espaçamento interno */
-    border-radius: 15px;        /* Cantos arredondados */
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(4, 160px); /* 4 colunas de cartas grandes */
+    gap: 15px;                               /* Espaço entre as cartas */
+    justify-content: center;                 /* Centraliza a grade na tela */
+    margin: 0 auto;                          /* Espaçamento externo automático */
+    max-width: 720px;
 }
 
-/* Esconde os checkboxes */
+/* Esconde as caixinhas do checkbox */
 input[type="checkbox"] {
     display: none;
 }
 
-/* Estilização da Carta com tamanho que NÃO ENCOLHE */
+/* Cartas Grandes em Formato Retangular (Estilo foto) */
 .carta {
-    width: 100px;
-    height: 100px;
-    background-color: #0f3460;
-    border-radius: 10px;        /* Cantos arredondados */
+    width: 160px;
+    height: 220px;              /* Altura maior que a largura (retangular) */
+    background-color: #ffffff;  /* Fundo branco como na imagem */
+    border: 6px solid #2563eb;  /* Borda azul grossa igual a da imagem */
+    border-radius: 12px;        /* Cantos arredondados */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
+    align-items: center;        /* Centraliza o emoji verticalmente */
+    justify-content: center;   /* Centraliza o emoji horizontalmente */
     cursor: pointer;
     box-sizing: border-box;
-    flex-shrink: 0;             /* IMPEDE A CARTA DE ENCOLHER */
 }
 
-/* Efeito :hover ao passar o mouse */
+/* Efeito :hover nas Cartas */
 .carta:hover {
-    background-color: #1f4068;
+    border-color: #1d4ed8;      /* Borda azul mais escura ao passar o mouse */
+    background-color: #f8fafc;
 }
 
-/* Esconde o emoji por padrão */
+/* Tamanho dos Emojis dentro das Cartas */
+.costas {
+    font-size: 50px;
+    color: #94a3b8;
+}
+
 .frente {
     display: none;
+    font-size: 90px;           /* Emoji gigante centralizado */
+    line-height: 1;
 }
 
 /* LÓGICA DO JOGO EM CSS */
+/* Quando a carta for clicada (:checked) */
+
+/* Esconde o símbolo de interrogação */
 input[type="checkbox"]:checked + .carta .costas {
     display: none;
 }
 
+/* Exibe o emoji gigante no centro */
 input[type="checkbox"]:checked + .carta .frente {
     display: block;
 }
 
+/* Destaca a borda da carta virada */
 input[type="checkbox"]:checked + .carta {
-    background-color: #00ff88;  /* Cor quando virada */
+    border-color: #16a34a;      /* Borda verde para indicar que foi virada */
 }
