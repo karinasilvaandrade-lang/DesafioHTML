@@ -2,23 +2,41 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Jogo da Adivinhação</title>
+    <title>Jogo da Cobrinha em CSS</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Nome do Autor -->
     <p class="autor">Criado por: Seu Nome Aqui</p>
 
-    <h1>Jogo do Bicho Secreto</h1>
+    <!-- Título Principal -->
+    <h1>Jogo da Cobrinha</h1>
 
-    <p>Clique no botão para descobrir qual é o animal secreto!</p>
+    <!-- Texto Explicativo -->
+    <p class="descricao">Clique na comida (🍎) para alimentar a cobrinha e fazê-la crescer!</p>
 
-    <input type="checkbox" id="revelar">
-    <label for="revelar" class="botao">Revelar Resposta</label>
+    <!-- Tabuleiro do Jogo -->
+    <div class="tabuleiro">
+        
+        <!-- Fase 1: Clique na primeira maçã -->
+        <input type="checkbox" id="fase1" class="check-comida">
+        <label for="fase1" class="maca maca1">🍎</label>
 
-    <div class="resposta">
-        <p>É um Gato!</p>
-        <img src="https://placekitten.com/200/200" alt="Gato">
+        <!-- Fase 2: Clique na segunda maçã -->
+        <input type="checkbox" id="fase2" class="check-comida">
+        <label for="fase2" class="maca maca2">🍎</label>
+
+        <!-- Corpo da Cobra -->
+        <div class="cobra">
+            <div class="cabeca"></div>
+            <div class="corpo corpo1"></div>
+            <div class="corpo corpo2"></div>
+        </div>
+
+        <!-- Mensagem de Vitória -->
+        <div class="mensagem-vitoria">Você Venceu! 🎉</div>
+
     </div>
 
 </body>

@@ -1,48 +1,121 @@
-/* Estilização Geral */
+/* Estilização Geral da Página */
 body {
-    background-color: #e0f7fa; /* Cor de fundo 1 */
-    color: #006064;            /* Cor do texto */
-    font-size: 18px;           /* Tamanho da fonte */
-    text-align: center;        /* Centraliza tudo */
-    margin: 50px;              /* Espaçamento externo */
+    background-color: #1a1a2e; /* Cor de fundo escura estilo arcade */
+    color: #ffffff;            /* Cor do texto */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-align: center;        /* Centraliza os textos */
+    margin: 20px;
 }
 
 .autor {
     font-size: 14px;
-    color: #00838f;
+    color: #00ff88;
 }
 
-/* Botão Bonito */
-.botao {
-    background-color: #00838f; /* Cor de fundo 2 (combina com a 1) */
-    color: white;
-    padding: 10px 20px;        /* Espaçamento interno */
-    border-radius: 8px;        /* Cantos arredondados */
+h1 {
+    font-size: 32px;
+    color: #00ff88;            /* Cor combinando com o tema */
+}
+
+.descricao {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Esconde os marcadores nativos */
+.check-comida {
+    display: none;
+}
+
+/* Campo do Jogo (Centralizado) */
+.tabuleiro {
+    background-color: #16213e;  /* Cor de fundo 2 */
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;             /* Centraliza o tabuleiro na tela (Espaçamento externo) */
+    padding: 10px;              /* Espaçamento interno */
+    border-radius: 15px;        /* Cantos arredondados */
+    position: relative;
+}
+
+/* Estilização da Cobra */
+.cabeca {
+    width: 30px;
+    height: 30px;
+    background-color: #00ff88;
+    border-radius: 5px;         /* Cantos arredondados */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.corpo {
+    width: 30px;
+    height: 30px;
+    background-color: #00b359;  /* Cor verde mais escura para o corpo */
+    border-radius: 5px;
+    position: absolute;
+    display: none;              /* Esconde partes do corpo no início */
+}
+
+/* Posições das Maçãs */
+.maca {
+    font-size: 24px;
+    position: absolute;
     cursor: pointer;
-    display: inline-block;
 }
 
-/* Efeito Hover no Botão */
-.botao:hover {
-    background-color: #005662;
+.maca:hover {
+    font-size: 28px;           /* Efeito :hover ao passar o mouse na maçã */
 }
 
-/* Esconde o quadradinho do checkbox */
-#revelar {
+.maca1 {
+    top: 20px;
+    left: 80px;
+}
+
+.maca2 {
+    top: 80px;
+    left: 80px;
+    display: none;              /* Segunda maçã começa escondida */
+}
+
+.mensagem-vitoria {
     display: none;
+    font-size: 24px;
+    color: #00ff88;
+    margin-top: 130px;
 }
 
-/* Esconde a resposta no início */
-.resposta {
-    display: none;
-    margin-top: 20px;
+/* LÓGICA DO JOGO EM CSS */
+
+/* Quando come a primeira maçã */
+#fase1:checked ~ .maca1 {
+    display: none;              /* Esconde a 1ª maçã */
 }
 
-.resposta img {
-    border-radius: 10px;        /* Cantos arredondados na imagem */
+#fase1:checked ~ .maca2 {
+    display: block;             /* Mostra a 2ª maçã */
 }
 
-/* LÓGICA DO JOGO: Quando clicar no botão, mostra a resposta */
-#revelar:checked ~ .resposta {
-    display: block;
+#fase1:checked ~ .cobra .corpo1 {
+    display: block;             /* Cresce a cobra (1 pedaço) */
+    top: 20px;
+    left: 50px;
+}
+
+/* Quando come a segunda maçã (Vitória) */
+#fase2:checked ~ .maca2 {
+    display: none;              /* Esconde a 2ª maçã */
+}
+
+#fase2:checked ~ .cobra .corpo2 {
+    display: block;             /* Cresce a cobra mais um pedaço */
+    top: 50px;
+    left: 80px;
+}
+
+#fase2:checked ~ .mensagem-vitoria {
+    display: block;             /* Exibe a mensagem de vitória */
 }
