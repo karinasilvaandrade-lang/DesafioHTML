@@ -1,180 +1,149 @@
-/* Configurações Globais (Estilo Psicodélico/Surreal) */
+/* Configurações Globais da Página */
 body {
-    background: linear-gradient(135deg, #12002b, #430050, #001f3f);
-    color: #ffffff;
-    font-family: 'Courier New', Courier, monospace;
+    background-color: #0f172a; /* Fundo escuro */
+    color: #f8fafc;            /* Texto claro */
+    font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
     padding: 20px;
-    min-height: 100vh;
 }
 
 .autor {
     font-size: 14px;
-    color: #00f0ff;
+    color: #eab308;             /* Cor amarela de manga */
     margin-bottom: 5px;
 }
 
 h1 {
-    font-size: 34px;
-    color: #ff007f;
-    text-shadow: 0 0 12px #ff007f, 0 0 20px #00f0ff;
+    font-size: 32px;
+    color: #eab308;             /* Destaque em amarelo manga */
     margin-top: 5px;
 }
 
 .descricao {
-    font-size: 15px;
-    color: #e0e0e0;
-    margin-bottom: 15px;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    line-height: 1.5;
+    color: #cbd5e1;
 }
 
-.imagem-tema {
-    width: 180px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 2px solid #00f0ff;
-    margin-bottom: 15px;
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
-}
-
-/* Botão de Reiniciar */
-.btn-reiniciar {
-    background-color: #111;
-    color: #00f0ff;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: 2px solid #00f0ff;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-bottom: 15px;
-    transition: 0.3s;
-}
-
-.btn-reiniciar:hover {
-    background-color: #00f0ff;
-    color: #111;
-    box-shadow: 0 0 15px #00f0ff;
-}
-
-/* Container da Moldura do Elevador */
-.painel-elevador {
-    background-color: #0a0a16;
+/* Cartão do Jogo (Centralizado) */
+.container-jogo {
+    background-color: #1e293b;
     width: 320px;
     margin: 0 auto;
     padding: 20px;
-    border-radius: 20px;
-    border: 3px solid #ff007f;
-    box-shadow: 0 0 25px rgba(255, 0, 127, 0.5);
+    border-radius: 16px;
+    border: 3px solid #eab308;  /* Borda amarela */
     box-sizing: border-box;
 }
 
-/* Esconde as bolinhas do radio */
+h2 {
+    font-size: 18px;
+    color: #38bdf8;
+    margin-top: 0;
+}
+
+.instrucao {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.imagem-tema {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #eab308;
+    margin: 10px 0;
+    transition: transform 0.3s;
+}
+
+/* Esconde as caixinhas de seleção radio */
 input[type="radio"] {
     display: none;
 }
 
-/* Visor dos Andares */
-.cenario-container {
-    width: 100%;
-    height: 180px;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    border: 2px solid #ffffff;
-}
-
-.vista {
-    width: 100%;
-    height: 100%;
+/* Status do Cachorro */
+.status-cao {
     display: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
-    padding: 15px;
-    box-sizing: border-box;
-    text-shadow: 0 0 8px #000;
-}
-
-/* Estilos de cada Andar Surreal */
-.andar-1 {
-    background: radial-gradient(circle, #2b0054, #000000);
-    color: #00f0ff;
-}
-
-.andar-2 {
-    background: linear-gradient(45deg, #ff007f, #7928ca);
-    color: #ffffff;
-    transform: rotate(180deg); /* Efeito de ponta-cabeça */
-}
-
-.andar-alerta {
-    background-color: #ff0000;
-    color: #ffffff;
-    animation: piscarAlerta 0.3s infinite alternate;
-}
-
-/* Animação Psicodélica do Erro */
-@keyframes piscarAlerta {
-    0% { background-color: #ff0000; }
-    100% { background-color: #4a0000; }
-}
-
-/* Mostrar o andar selecionado */
-#andar1:checked ~ .andar-1 { display: flex; }
-#andar2:checked ~ .andar-2 { display: flex; }
-#andar-erro:checked ~ .andar-alerta { display: flex; }
-
-/* Botões do Painel do Elevador */
-.botoes-painel {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.btn-andar {
-    background-color: #1f1f38;
-    color: #ffffff;
-    padding: 12px 15px;
+    padding: 10px;
     border-radius: 8px;
-    border: 1px solid #ff007f;
-    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.pelo-original {
+    background-color: #854d0e;
+    color: #fef08a;
+}
+
+.pelo-penteado {
+    background-color: #0284c7;
+    color: #ffffff;
+}
+
+.pelo-estiloso {
+    background-color: #16a34a;
+    color: #ffffff;
+}
+
+/* Lógica do Jogo em CSS */
+#pente1:checked ~ .pelo-original { display: block; }
+#pente2:checked ~ .pelo-penteado { display: block; }
+#pente3:checked ~ .pelo-estiloso { display: block; }
+
+/* Efeito na imagem ao arrumar o cão */
+#pente2:checked ~ .imagem-tema,
+#pente3:checked ~ .imagem-tema {
+    transform: scale(1.03);
+}
+
+/* Estilo dos Botões */
+.botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-acao {
+    background-color: #eab308;
+    color: #0f172a;
+    font-size: 14px;
     font-weight: bold;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
     transition: 0.2s;
 }
 
-.btn-andar:hover {
-    background-color: #ff007f;
-    box-shadow: 0 0 10px #ff007f;
+.btn-acao:hover {
+    background-color: #ca8a04;
 }
 
-.btn-perigo {
-    border-color: #ff0000;
-    color: #ff4d4d;
+.btn-gel {
+    background-color: #38bdf8;
+    color: #0f172a;
 }
 
-.btn-perigo:hover {
-    background-color: #ff0000;
+.btn-gel:hover {
+    background-color: #0284c7;
     color: #ffffff;
-    box-shadow: 0 0 10px #ff0000;
 }
-/* Configurações Globais da Página */
-body {
-    background: linear-gradient(135deg, #12002b, #430050, #001f3f);
+
+.btn-reset {
+    background-color: #ef4444;
     color: #ffffff;
-    font-family: 'Courier New', Courier, monospace;
-    text-align: center;
-    margin: 0;
-    padding: 20px;
-    min-height: 100vh;
-
-    /* Muda a seta do mouse para o emblema do Corinthians */
-    cursor: url('https://cur.cursors-4u.net/sports/spo-1/spo82.cur'), auto;
+    font-size: 13px;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 5px;
 }
 
-/* Garante que o cursor continue sendo o emblema ao passar por cima de botões */
-button, label, input {
-    cursor: url('https://cur.cursors-4u.net/sports/spo-1/spo82.cur'), pointer !important;
+.btn-reset:hover {
+    background-color: #dc2626;
 }
