@@ -3,46 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trend do TikTok: Dormiria Aqui?</title>
+    <title>Trend TikTok: Dormiria Aqui?</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Autor -->
     <p class="autor">Desenvolvido por: [SEU NOME AQUI]</p>
-
-    <!-- Título Principal estilo Trend TikTok -->
     <h1>Você dormiria nesse quarto? 🛏️✨</h1>
+    <p class="descricao">Escolha um número de 1 a 10 ou clique em "Próximo Quarto" para navegar pelas opções!</p>
 
-    <!-- Descrição -->
-    <p class="descricao">
-        Quarto 1 de 10! Vote abaixo para dizer se você passaria a noite aqui ou se sairia correndo.
-    </p>
-
-    <!-- Cartão do Quarto -->
     <form class="card-quarto">
         
-        <!-- Número do Quarto -->
-        <div class="tag-numero">Quarto 1 / 10</div>
+        <!-- Seleção secreta de quartos via Radio Buttons -->
+        <input type="radio" name="quarto" id="q1" checked>
+        <input type="radio" name="quarto" id="q2">
+        <input type="radio" name="quarto" id="q3">
+        <input type="radio" name="quarto" id="q4">
+        <input type="radio" name="quarto" id="q5">
+        <input type="radio" name="quarto" id="q6">
+        <input type="radio" name="quarto" id="q7">
+        <input type="radio" name="quarto" id="q8">
+        <input type="radio" name="quarto" id="q9">
+        <input type="radio" name="quarto" id="q10">
 
-        <!-- Imagem do Quarto -->
-        <img src="https://images.unsplash.com/photo-1540518614846-7ede433c5172?w=500" alt="Quarto Aconchegante" class="imagem-quarto">
-
-        <!-- Sistema de Votação (Radio Buttons) -->
-        <div class="opcoes-voto">
-            <input type="radio" name="voto" id="sim">
-            <label for="sim" class="btn-voto btn-sim">😴 Dormiria Com Certeza!</label>
-
-            <input type="radio" name="voto" id="nao">
-            <label for="nao" class="btn-voto btn-nao">🚫 Nem A Pau!</label>
+        <!-- Botões Numéricos (1 a 10) -->
+        <div class="menu-numeros">
+            <label for="q1" class="btn-num num-1">1</label>
+            <label for="q2" class="btn-num num-2">2</label>
+            <label for="q3" class="btn-num num-3">3</label>
+            <label for="q4" class="btn-num num-4">4</label>
+            <label for="q5" class="btn-num num-5">5</label>
+            <label for="q6" class="btn-num num-6">6</label>
+            <label for="q7" class="btn-num num-7">7</label>
+            <label for="q8" class="btn-num num-8">8</label>
+            <label for="q9" class="btn-num num-9">9</label>
+            <label for="q10" class="btn-num num-10">10</label>
         </div>
 
-        <!-- Mensagens de Resposta -->
+        <!-- Área dos Quartos com Imagens Diferentes -->
+        <div class="area-conteudo">
+            <!-- Quarto 1 -->
+            <div class="item-quarto quarto-1">
+                <div class="tag-numero">Quarto 1 de 10</div>
+                <img src="https://images.unsplash.com/photo-1540518614846-7ede433c5172?w=500" alt="Quarto 1" class="imagem-quarto">
+                <div class="nav-proximo"><label for="q2" class="btn-next">Próximo Quarto ➡️</label></div>
+            </div>
+
+            <!-- Quarto 2 -->
+            <div class="item-quarto quarto-2">
+                <div class="tag-numero">Quarto 2 de 10</div>
+                <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=500" alt="Quarto 2" class="imagem-quarto">
+                <div class="nav-proximo"><label for="q3" class="btn-next">Próximo Quarto ➡️</label></div>
+            </div>
+
+            <!-- Quarto 3 -->
+            <div class="item-quarto quarto-3">
+                <div class="tag-numero">Quarto 3 de 10</div>
+                <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=500" alt="Quarto 3" class="imagem-quarto">
+                <div class="nav-proximo"><label for="q4" class="btn-next">Próximo Quarto ➡️</label></div>
+            </div>
+
+            <!-- Quarto 4 -->
+            <div class="item-quarto quarto-4">
+                <div class="tag-numero">Quarto 4 de 10</div>
+                <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500" alt="Quarto 4" class="imagem-quarto">
+                <div class="nav-proximo"><label for="q5" class="btn-next">Próximo Quarto ➡️</label></div>
+            </div>
+
+            <!-- Quarto 5 -->
+            <div class="item-quarto quarto-5">
+                <div class="tag-numero">Quarto 5 de 10</div>
+                <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=500" alt="Quarto 5" class="imagem-quarto">
+                <div class="nav-proximo"><label for="q6" class="btn-next">Próximo Quarto ➡️</label></div>
+            </div>
+
+            <!-- Quarto 6 -->
+            <div class="item-quarto quarto-6">
+                <div class="tag-numero">Quarto 6 de 10</div>
+                <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=500" alt="Quarto 6" class="imagem-quarto">
+                <div class="nav-proximo"><label for="q7" class="btn-next">Próximo Quarto ➡️</label></div>
+            </div>
+
+            <!-- Quarto 7 -->
+            <div class="item-quarto quarto-7">
+                <div class="tag-numero">Quarto 7 de 10</div>
+                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=500" alt="Quarto 7" class="imagem-quarto">
+                <div class="nav-proximo"><label for="q8" class="btn-next">Próximo Quarto ➡️</label></div>
+            </div>
+
+            <!-- Quarto 8 -->
+            <div class="item-quarto quarto-8">
+                <div class="tag-numero">Quarto 8 de 10</div>
+                <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=500" alt="Quarto 8" class="imagem-quarto">
+                <div class="nav-proximo"><label for="q9" class="btn-next">Próximo Quarto ➡️</label></div>
+            </div>
+
+            <!-- Quarto 9 -->
+            <div class="item-quarto quarto-9">
+                <div class="tag-numero">Quarto 9 de 10</div>
+                <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=500" alt="Quarto 9" class="imagem-quarto">
+                <div class="nav-proximo"><label for="q10" class="btn-next">Próximo Quarto ➡️</label></div>
+            </div>
+
+            <!-- Quarto 10 -->
+            <div class="item-quarto quarto-10">
+                <div class="tag-numero">Quarto 10 de 10</div>
+                <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=500" alt="Quarto 10" class="imagem-quarto">
+                <div class="nav-proximo"><label for="q1" class="btn-next">Voltar ao Inicio 🔄</label></div>
+            </div>
+        </div>
+
+        <!-- Botões de Voto (Dormiria / Não Dormiria) -->
+        <div class="opcoes-voto">
+            <input type="radio" name="voto" id="voto-sim">
+            <label for="voto-sim" class="btn-voto btn-sim">😴 Dormiria Com Certeza!</label>
+
+            <input type="radio" name="voto" id="voto-nao">
+            <label for="voto-nao" class="btn-voto btn-nao">🚫 Nem A Pau!</label>
+        </div>
+
+        <!-- Mensagens de Voto -->
         <div class="resposta res-sim">Opção registrada: Você DORMIRIA aqui! 🛌✅</div>
         <div class="resposta res-nao">Opção registrada: Você NÃO DORMIRIA aqui! 🏃‍♂️💨</div>
 
-        <!-- Botão para Próximo/Reset -->
-        <button type="reset" class="btn-reset">🔄 Mudar de Quarto / Mudar Voto</button>
+        <!-- Botão para limpar voto -->
+        <button type="reset" class="btn-reset">🔄 Resetar Opções</button>
 
     </form>
 
