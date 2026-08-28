@@ -1,138 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trend TikTok: Dormiria Aqui?</title>
+    <title>Stardew Valley - Vida no Campo</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <p class="autor">Desenvolvido por: [SEU NOME AQUI]</p>
-    <h1>Você dormiria nesse quarto? 🛏️✨</h1>
-    <p class="descricao">Escolha um número de 1 a 10 ou clique em "Próximo Quarto" para ver os quartos!</p>
+    <header>
+        <h1>Stardew Valley</h1>
+        <p>Bem-vindo à sua nova vida na Vila Pelicanos</p>
+    </header>
 
-    <form class="card-quarto">
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#estacoes">Estações</a>
+        <a href="#atividades">Atividades</a>
+    </nav>
 
-        <!-- Seleção secreta de quartos -->
-        <input type="radio" name="quarto" id="q1" checked>
-        <input type="radio" name="quarto" id="q2">
-        <input type="radio" name="quarto" id="q3">
-        <input type="radio" name="quarto" id="q4">
-        <input type="radio" name="quarto" id="q5">
-        <input type="radio" name="quarto" id="q6">
-        <input type="radio" name="quarto" id="q7">
-        <input type="radio" name="quarto" id="q8">
-        <input type="radio" name="quarto" id="q9">
-        <input type="radio" name="quarto" id="q10">
+    <div class="container">
+        
+        <section id="sobre" class="pixel-card">
+            <h2>A Fazenda</h2>
+            <p>Você herdou a antiga fazenda do seu avô no Vale do Sereno. Armado com ferramentas de segunda mão e algumas moedas, você está prestes a começar sua nova vida!</p>
+        </section>
 
-        <!-- Botões de 1 a 10 -->
-        <div class="menu-numeros">
-            <label for="q1" class="btn-num num-1">1</label>
-            <label for="q2" class="btn-num num-2">2</label>
-            <label for="q3" class="btn-num num-3">3</label>
-            <label for="q4" class="btn-num num-4">4</label>
-            <label for="q5" class="btn-num num-5">5</label>
-            <label for="q6" class="btn-num num-6">6</label>
-            <label for="q7" class="btn-num num-7">7</label>
-            <label for="q8" class="btn-num num-8">8</label>
-            <label for="q9" class="btn-num num-9">9</label>
-            <label for="q10" class="btn-num num-10">10</label>
-        </div>
-
-        <!-- Área das Imagens (Apenas 1 por vez) -->
-        <div class="area-conteudo">
-
-            <div class="item-quarto quarto-1">
-                <div class="tag-numero">Quarto 1 de 10</div>
-                <img src="https://wl-incrivel.cf.tsp.li/resize/728x/jpg/a91/d88/9f65d45ccca631af81bbc9f459.jpg"
-                    alt="Quarto Psicodélico" class="imagem-quarto">
-                <div class="nav-proximo"><label for="q2" class="btn-next">Próximo Quarto ➡️</label></div>
+        <section id="estacoes" class="pixel-card">
+            <h2>As Estações</h2>
+            <p>Cada estação dura 28 dias e traz cultivos, peixes e eventos únicos:</p>
+            
+            <div class="estacoes-grid">
+                <div class="estacao primavera">
+                    <h3>Primavera</h3>
+                    <p>Morangos, Couve e Flores.</p>
+                </div>
+                <div class="estacao verao">
+                    <h3>Verão</h3>
+                    <p>Mirtilos, Carambolas e Sol.</p>
+                </div>
+                <div class="estacao outono">
+                    <h3>Outono</h3>
+                    <p>Abóboras, Cranberries e Fagulhas.</p>
+                </div>
+                <div class="estacao inverno">
+                    <h3>Inverno</h3>
+                    <p>Mineração, Forrageio e Neve.</p>
+                </div>
             </div>
+        </section>
 
-            <div class="item-quarto quarto-2">
-                <div class="tag-numero">Quarto 2 de 10</div>
-                <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=300&q=60" alt="Quarto 2"
-                    class="imagem-quarto">
-                <div class="nav-proximo"><label for="q3" class="btn-next">Próximo Quarto ➡️</label></div>
-            </div>
+        <section id="atividades" class="pixel-card">
+            <h2>O que fazer no Vale?</h2>
+            <ul>
+                <li><strong>Agricultura:</strong> Plante e colha vegetais da estação.</li>
+                <li><strong>Mineração:</strong> Explore as minas em busca de minérios e monstros.</li>
+                <li><strong>Pesca:</strong> Capture diferentes peixes nos rios, lagos e oceano.</li>
+                <li><strong>Socializar:</strong> Faça amizade com os moradores da Vila Pelicanos.</li>
+                <li><strong>Centro Comunitário:</strong> Restaure a antiga glória da cidade completando os conjuntos dos Junimos.</li>
+            </ul>
+        </section>
 
-            <div class="item-quarto quarto-3">
-                <div class="tag-numero">Quarto 3 de 10</div>
-                <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=300&q=60" alt="Quarto 3"
-                    class="imagem-quarto">
-                <div class="nav-proximo"><label for="q4" class="btn-next">Próximo Quarto ➡️</label></div>
-            </div>
+    </div>
 
-            <div class="item-quarto quarto-4">
-                <div class="tag-numero">Quarto 4 de 10</div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy6OXxZvHtPWPLU5xncqrvCd7n0oll6Qf29BixtavtbYuzxfXrpeeNUUB4&s=10" alt="Quarto 4"
-                    class="imagem-quarto">
-                <div class="nav-proximo"><label for="q5" class="btn-next">Próximo Quarto ➡️</label></div>
-            </div>
-
-            <div class="item-quarto quarto-5">
-                <div class="tag-numero">Quarto 5 de 10</div>
-                <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=300&q=60" alt="Quarto 5"
-                    class="imagem-quarto">
-                <div class="nav-proximo"><label for="q6" class="btn-next">Próximo Quarto ➡️</label></div>
-            </div>
-
-            <div class="item-quarto quarto-6">
-                <div class="tag-numero">Quarto 6 de 10</div>
-                <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=300&q=60" alt="Quarto 6"
-                    class="imagem-quarto">
-                <div class="nav-proximo"><label for="q7" class="btn-next">Próximo Quarto ➡️</label></div>
-            </div>
-
-            <div class="item-quarto quarto-7">
-                <div class="tag-numero">Quarto 7 de 10</div>
-                <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=300&q=60" alt="Quarto 7"
-                    class="imagem-quarto">
-                <div class="nav-proximo"><label for="q8" class="btn-next">Próximo Quarto ➡️</label></div>
-            </div>
-
-            <div class="item-quarto quarto-8">
-                <div class="tag-numero">Quarto 8 de 10</div>
-                <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=300&q=60" alt="Quarto 8"
-                    class="imagem-quarto">
-                <div class="nav-proximo"><label for="q9" class="btn-next">Próximo Quarto ➡️</label></div>
-            </div>
-
-            <div class="item-quarto quarto-9">
-                <div class="tag-numero">Quarto 9 de 10</div>
-                <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=300&q=60" alt="Quarto 9"
-                    class="imagem-quarto">
-                <div class="nav-proximo"><label for="q10" class="btn-next">Próximo Quarto ➡️</label></div>
-            </div>
-
-            <div class="item-quarto quarto-10">
-                <div class="tag-numero">Quarto 10 de 10</div>
-                <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=300&q=60" alt="Quarto 10"
-                    class="imagem-quarto">
-                <div class="nav-proximo"><label for="q1" class="btn-next">Voltar ao Inicio 🔄</label></div>
-            </div>
-
-        </div>
-
-        <!-- Botões de Voto -->
-        <div class="opcoes-voto">
-            <input type="radio" name="voto" id="voto-sim">
-            <label for="voto-sim" class="btn-voto btn-sim">😴 Dormiria!</label>
-
-            <input type="radio" name="voto" id="voto-nao">
-            <label for="voto-nao" class="btn-voto btn-nao">🚫 Nem A Pau!</label>
-        </div>
-
-        <div class="resposta res-sim">Você DORMIRIA aqui! 🛌✅</div>
-        <div class="resposta res-nao">Você NÃO DORMIRIA aqui! 🏃‍♂️💨</div>
-
-        <button type="reset" class="btn-reset">🔄 Resetar Voto</button>
-
-    </form>
+    <footer>
+        <p>Fan page criada para entusiastas de Stardew Valley | Desenvolvido com HTML & CSS</p>
+    </footer>
 
 </body>
-
 </html>
