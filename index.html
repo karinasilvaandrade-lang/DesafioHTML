@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo do Labirinto</title>
+    <title>Jogo do Labirinto Fácil</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,18 +16,31 @@
 
     <!-- Texto Explicativo -->
     <p class="descricao">
-        Passe o mouse pelo caminho sem encostar nas paredes azuis para chegar ao final!
+        Passe o mouse pelo caminho escuro! Se encostar na borda azul, você perde e precisa voltar ao INÍCIO para reiniciar.
     </p>
 
     <!-- Imagem Ilustrativa -->
     <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400" alt="Labirinto" class="imagem-tema">
 
-    <!-- Area do Jogo -->
-    <div class="labirinto">
+    <!-- Estrutura do Labirinto -->
+    <div class="parede">
+
+        <!-- Mensagem de Erro que cobre o jogo ao bater na borda -->
+        <div class="tela-erro">PERDEU! <br> Volte ao INÍCIO 🔄</div>
+
+        <!-- Ponto de Partida -->
         <div class="inicio">INÍCIO</div>
-        <div class="caminho">
-            <div class="vitoria">FIM 🏆</div>
+
+        <!-- Caminho Seguro -->
+        <div class="trilho-v"></div>
+        <div class="curva">
+            <div class="trilho-h"></div>
         </div>
+        <div class="trilho-v-final">
+            <!-- Ponto Final / Vitória -->
+            <div class="chegada">🏆 CHEGADA</div>
+        </div>
+
     </div>
 
 </body>

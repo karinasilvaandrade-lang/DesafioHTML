@@ -1,22 +1,22 @@
-/* Configurações Globais */
+/* Configurações Globais da Página */
 body {
-    background-color: #0f172a; /* Cor de fundo escura */
-    color: #f8fafc;            /* Cor do texto principal */
+    background-color: #0f172a;
+    color: #f8fafc;
     font-family: Arial, sans-serif;
-    text-align: center;        /* Centraliza o texto */
+    text-align: center;
     margin: 0;
     padding: 20px;
 }
 
 .autor {
     font-size: 14px;
-    color: #38bdf8;             /* Cor combinando com a borda */
+    color: #38bdf8;
     margin-bottom: 5px;
 }
 
 h1 {
     font-size: 32px;
-    color: #38bdf8;             /* Cor principal do título */
+    color: #38bdf8;
     margin-top: 5px;
 }
 
@@ -29,73 +29,118 @@ h1 {
     width: 180px;
     height: 70px;
     object-fit: cover;
-    border-radius: 10px;        /* Cantos arredondados */
+    border-radius: 10px;
     margin-bottom: 20px;
 }
 
-/* Área Externa do Labirinto (As Parede Azuis) */
-.labirinto {
+/* PAREDE DO LABIRINTO (Área Externa) */
+.parede {
     background-color: #0284c7;  /* Paredes Azuis */
-    width: 300px;
-    height: 250px;
-    margin: 0 auto;             /* Centraliza o container */
-    padding: 20px;              /* Espaçamento interno */
-    border-radius: 16px;        /* Cantos arredondados */
+    width: 380px;
+    height: 380px;
+    margin: 0 auto;
+    padding: 25px;
+    border-radius: 16px;
     box-sizing: border-box;
+    cursor: crosshair;
     position: relative;
 }
 
-/* Ponto de Início */
-.inicio {
-    background-color: #22c55e;
-    color: white;
-    font-size: 14px;
+/* TELA DE ERRO (Escondida por padrão) */
+.tela-erro {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ef4444; /* Fundo Vermelho */
+    color: #ffffff;
+    font-size: 24px;
     font-weight: bold;
-    padding: 8px;
-    border-radius: 6px;
-    width: 60px;
-    margin-bottom: 10px;
+    border-radius: 16px;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; /* Fica por cima do jogo */
 }
 
-/* O Caminho Seguro para passar o Mouse */
-.caminho {
-    background-color: #1e293b;  /* Fundo escuro do caminho */
-    width: 60px;
-    height: 140px;
+/* REGRAS DO JOGO EM CSS PURO: */
+
+/* 1. Quando o mouse encosta na parede azul, MOSTRA a tela de erro vermelha */
+.parede:hover .tela-erro {
+    display: flex;
+}
+
+/* 2. Quando o mouse passa no INÍCIO ou nos TRILHOS, ESCONDE a tela de erro */
+.inicio:hover ~ .tela-erro,
+.trilho-v:hover ~ .tela-erro,
+.curva:hover ~ .tela-erro,
+.trilho-v-final:hover ~ .tela-erro,
+.parede:has(.inicio:hover) .tela-erro {
+    display: none !important;
+}
+
+/* CAMINHOS SEGUROS (Trilhos) */
+.inicio {
+    background-color: #22c55e;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px;
     border-radius: 8px;
-    margin: 0 auto;             /* Centralizado */
+    width: 100px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 20; /* Mantém o início sempre acessível */
+}
+
+.trilho-v {
+    background-color: #1e293b;
+    width: 100px;
+    height: 80px;
+}
+
+.curva {
+    background-color: #0284c7;
+}
+
+.trilho-h {
+    background-color: #1e293b;
+    width: 220px;
+    height: 80px;
+}
+
+.trilho-v-final {
+    background-color: #1e293b;
+    width: 100px;
+    height: 120px;
+    margin-left: 120px;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
-    padding-bottom: 10px;
-    box-sizing: border-box;
 }
 
 /* Ponto de Vitória */
-.vitoria {
+.chegada {
     background-color: #eab308;
     color: #0f172a;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: bold;
-    padding: 8px 4px;
-    border-radius: 6px;
-    cursor: pointer;
+    padding: 12px 5px;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* LÓGICA DO JOGO EM CSS PURO */
-
-/* Efeito :hover na vitória */
-.vitoria:hover {
+.chegada:hover {
     background-color: #22c55e;
-    color: white;
+    color: #ffffff;
 }
 
-/* Se encostar nas paredes azuis (.labirinto:hover), elas ficam VERMELHAS avisando que errou! */
-.labirinto:hover {
-    background-color: #ef4444;  /* Fica vermelho ao encostar na parede */
-}
-
-/* Impede o caminho seguro de ficar vermelho */
-.caminho:hover {
+/* Mantém a cor do caminho escura ao passar o mouse */
+.trilho-v:hover,
+.trilho-h:hover,
+.trilho-v-final:hover,
+.inicio:hover {
     background-color: #1e293b;
 }
