@@ -2,55 +2,33 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Jogo da Velha - HTML/CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Labirinto</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p class="autor">Desenvolvido por: [SEU NOME AQUI]</p>
-    <h1>Jogo da Velha</h1>
-    <p class="descricao">Clique nos quadrados para jogar! Alterne entre as marcações.</p>
 
-    <form class="tabuleiro">
-        <button type="reset" class="btn-reset">🔄 Reiniciar</button>
-        <div class="grade">
-            <!-- Cada célula tem 2 opções de marcação -->
-            <div class="celula">
-                <input type="checkbox" id="c1">
-                <label for="c1" class="quadrado"></label>
-            </div>
-            <div class="celula">
-                <input type="checkbox" id="c2">
-                <label for="c2" class="quadrado"></label>
-            </div>
-            <div class="celula">
-                <input type="checkbox" id="c3">
-                <label for="c3" class="quadrado"></label>
-            </div>
-            <div class="celula">
-                <input type="checkbox" id="c4">
-                <label for="c4" class="quadrado"></label>
-            </div>
-            <div class="celula">
-                <input type="checkbox" id="c5">
-                <label for="c5" class="quadrado"></label>
-            </div>
-            <div class="celula">
-                <input type="checkbox" id="c6">
-                <label for="c6" class="quadrado"></label>
-            </div>
-            <div class="celula">
-                <input type="checkbox" id="c7">
-                <label for="c7" class="quadrado"></label>
-            </div>
-            <div class="celula">
-                <input type="checkbox" id="c8">
-                <label for="c8" class="quadrado"></label>
-            </div>
-            <div class="celula">
-                <input type="checkbox" id="c9">
-                <label for="c9" class="quadrado"></label>
-            </div>
+    <!-- Nome do Autor -->
+    <p class="autor">Desenvolvido por: [SEU NOME AQUI]</p>
+
+    <!-- Título Principal -->
+    <h1>Jogo do Labirinto 🌀</h1>
+
+    <!-- Texto Explicativo -->
+    <p class="descricao">
+        Passe o mouse pelo caminho sem encostar nas paredes azuis para chegar ao final!
+    </p>
+
+    <!-- Imagem Ilustrativa -->
+    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400" alt="Labirinto" class="imagem-tema">
+
+    <!-- Area do Jogo -->
+    <div class="labirinto">
+        <div class="inicio">INÍCIO</div>
+        <div class="caminho">
+            <div class="vitoria">FIM 🏆</div>
         </div>
-    </form>
+    </div>
+
 </body>
 </html>
