@@ -1,27 +1,30 @@
-/* Configurações Globais da Página */
+/* Configurações Globais (Estilo Psicodélico/Surreal) */
 body {
-    background-color: #0f172a;
-    color: #f8fafc;
-    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #12002b, #430050, #001f3f);
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
     text-align: center;
     margin: 0;
     padding: 20px;
+    min-height: 100vh;
 }
 
 .autor {
     font-size: 14px;
-    color: #38bdf8;
+    color: #00f0ff;
     margin-bottom: 5px;
 }
 
 h1 {
-    font-size: 32px;
-    color: #38bdf8;
+    font-size: 34px;
+    color: #ff007f;
+    text-shadow: 0 0 12px #ff007f, 0 0 20px #00f0ff;
     margin-top: 5px;
 }
 
 .descricao {
-    font-size: 16px;
+    font-size: 15px;
+    color: #e0e0e0;
     margin-bottom: 15px;
 }
 
@@ -29,118 +32,149 @@ h1 {
     width: 180px;
     height: 70px;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 2px solid #00f0ff;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
 }
 
-/* PAREDE DO LABIRINTO (Área Externa) */
-.parede {
-    background-color: #0284c7;  /* Paredes Azuis */
-    width: 380px;
-    height: 380px;
-    margin: 0 auto;
-    padding: 25px;
-    border-radius: 16px;
-    box-sizing: border-box;
-    cursor: crosshair;
-    position: relative;
-}
-
-/* TELA DE ERRO (Escondida por padrão) */
-.tela-erro {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ef4444; /* Fundo Vermelho */
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: bold;
-    border-radius: 16px;
-    align-items: center;
-    justify-content: center;
-    z-index: 10; /* Fica por cima do jogo */
-}
-
-/* REGRAS DO JOGO EM CSS PURO: */
-
-/* 1. Quando o mouse encosta na parede azul, MOSTRA a tela de erro vermelha */
-.parede:hover .tela-erro {
-    display: flex;
-}
-
-/* 2. Quando o mouse passa no INÍCIO ou nos TRILHOS, ESCONDE a tela de erro */
-.inicio:hover ~ .tela-erro,
-.trilho-v:hover ~ .tela-erro,
-.curva:hover ~ .tela-erro,
-.trilho-v-final:hover ~ .tela-erro,
-.parede:has(.inicio:hover) .tela-erro {
-    display: none !important;
-}
-
-/* CAMINHOS SEGUROS (Trilhos) */
-.inicio {
-    background-color: #22c55e;
-    color: #ffffff;
+/* Botão de Reiniciar */
+.btn-reiniciar {
+    background-color: #111;
+    color: #00f0ff;
     font-size: 14px;
     font-weight: bold;
-    padding: 12px;
+    padding: 10px 20px;
+    border: 2px solid #00f0ff;
     border-radius: 8px;
-    width: 100px;
-    margin-bottom: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.btn-reiniciar:hover {
+    background-color: #00f0ff;
+    color: #111;
+    box-shadow: 0 0 15px #00f0ff;
+}
+
+/* Container da Moldura do Elevador */
+.painel-elevador {
+    background-color: #0a0a16;
+    width: 320px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20px;
+    border: 3px solid #ff007f;
+    box-shadow: 0 0 25px rgba(255, 0, 127, 0.5);
     box-sizing: border-box;
-    position: relative;
-    z-index: 20; /* Mantém o início sempre acessível */
 }
 
-.trilho-v {
-    background-color: #1e293b;
-    width: 100px;
-    height: 80px;
+/* Esconde as bolinhas do radio */
+input[type="radio"] {
+    display: none;
 }
 
-.curva {
-    background-color: #0284c7;
-}
-
-.trilho-h {
-    background-color: #1e293b;
-    width: 220px;
-    height: 80px;
-}
-
-.trilho-v-final {
-    background-color: #1e293b;
-    width: 100px;
-    height: 120px;
-    margin-left: 120px;
-    display: flex;
-    align-items: flex-end;
-}
-
-/* Ponto de Vitória */
-.chegada {
-    background-color: #eab308;
-    color: #0f172a;
-    font-size: 13px;
-    font-weight: bold;
-    padding: 12px 5px;
-    border-radius: 8px;
+/* Visor dos Andares */
+.cenario-container {
     width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid #ffffff;
+}
+
+.vista {
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
     box-sizing: border-box;
+    text-shadow: 0 0 8px #000;
 }
 
-.chegada:hover {
-    background-color: #22c55e;
+/* Estilos de cada Andar Surreal */
+.andar-1 {
+    background: radial-gradient(circle, #2b0054, #000000);
+    color: #00f0ff;
+}
+
+.andar-2 {
+    background: linear-gradient(45deg, #ff007f, #7928ca);
     color: #ffffff;
+    transform: rotate(180deg); /* Efeito de ponta-cabeça */
 }
 
-/* Mantém a cor do caminho escura ao passar o mouse */
-.trilho-v:hover,
-.trilho-h:hover,
-.trilho-v-final:hover,
-.inicio:hover {
-    background-color: #1e293b;
+.andar-alerta {
+    background-color: #ff0000;
+    color: #ffffff;
+    animation: piscarAlerta 0.3s infinite alternate;
+}
+
+/* Animação Psicodélica do Erro */
+@keyframes piscarAlerta {
+    0% { background-color: #ff0000; }
+    100% { background-color: #4a0000; }
+}
+
+/* Mostrar o andar selecionado */
+#andar1:checked ~ .andar-1 { display: flex; }
+#andar2:checked ~ .andar-2 { display: flex; }
+#andar-erro:checked ~ .andar-alerta { display: flex; }
+
+/* Botões do Painel do Elevador */
+.botoes-painel {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.btn-andar {
+    background-color: #1f1f38;
+    color: #ffffff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ff007f;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-andar:hover {
+    background-color: #ff007f;
+    box-shadow: 0 0 10px #ff007f;
+}
+
+.btn-perigo {
+    border-color: #ff0000;
+    color: #ff4d4d;
+}
+
+.btn-perigo:hover {
+    background-color: #ff0000;
+    color: #ffffff;
+    box-shadow: 0 0 10px #ff0000;
+}
+/* Configurações Globais da Página */
+body {
+    background: linear-gradient(135deg, #12002b, #430050, #001f3f);
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+
+    /* Muda a seta do mouse para o emblema do Corinthians */
+    cursor: url('https://cur.cursors-4u.net/sports/spo-1/spo82.cur'), auto;
+}
+
+/* Garante que o cursor continue sendo o emblema ao passar por cima de botões */
+button, label, input {
+    cursor: url('https://cur.cursors-4u.net/sports/spo-1/spo82.cur'), pointer !important;
 }

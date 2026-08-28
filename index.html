@@ -3,45 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo do Labirinto Fácil</title>
+    <title>Elevador Surreal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Nome do Autor -->
+    <!-- Autor -->
     <p class="autor">Desenvolvido por: [SEU NOME AQUI]</p>
 
-    <!-- Título Principal -->
-    <h1>Jogo do Labirinto 🌀</h1>
+    <!-- Título -->
+    <h1>Elevador Surreal 👁️✨</h1>
 
-    <!-- Texto Explicativo -->
+    <!-- Descrição -->
     <p class="descricao">
-        Passe o mouse pelo caminho escuro! Se encostar na borda azul, você perde e precisa voltar ao INÍCIO para reiniciar.
+        Escolha o andar correto para navegar pela dimensão dos sonhos. Se escolher o andar proibido, a realidade se distorce!
     </p>
 
-    <!-- Imagem Ilustrativa -->
-    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400" alt="Labirinto" class="imagem-tema">
+    <!-- Imagem Ilustrativa Surreal -->
+    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400" alt="Espaço Surreal" class="imagem-tema">
 
-    <!-- Estrutura do Labirinto -->
-    <div class="parede">
+    <!-- Container do Jogo -->
+    <form class="painel-elevador">
+        
+        <!-- Botão de Reiniciar -->
+        <button type="reset" class="btn-reiniciar">🔄 Voltar ao Térreo</button>
 
-        <!-- Mensagem de Erro que cobre o jogo ao bater na borda -->
-        <div class="tela-erro">PERDEU! <br> Volte ao INÍCIO 🔄</div>
+        <!-- Portas do Elevador -->
+        <div class="cenario-container">
+            
+            <!-- Andar 1 (Espaço Neon) -->
+            <input type="radio" name="andar" id="andar1" checked>
+            <div class="vista andar-1">
+                <span>🌌 Andar 1: Dimensão Espacial</span>
+            </div>
 
-        <!-- Ponto de Partida -->
-        <div class="inicio">INÍCIO</div>
+            <!-- Andar 2 (Mundo Invertido) -->
+            <input type="radio" name="andar" id="andar2">
+            <div class="vista andar-2">
+                <span>🙃 Andar 2: Gravidade Invertida</span>
+            </div>
 
-        <!-- Caminho Seguro -->
-        <div class="trilho-v"></div>
-        <div class="curva">
-            <div class="trilho-h"></div>
+            <!-- Andar Proibido (Perdeu!) -->
+            <input type="radio" name="andar" id="andar-erro">
+            <div class="vista andar-alerta">
+                <span>⚠️ PERIGO! REALIDADE COLAPSOU! 🌀</span>
+            </div>
+
         </div>
-        <div class="trilho-v-final">
-            <!-- Ponto Final / Vitória -->
-            <div class="chegada">🏆 CHEGADA</div>
+
+        <!-- Botões do Painel -->
+        <div class="botoes-painel">
+            <label for="andar1" class="btn-andar">Andar 1</label>
+            <label for="andar2" class="btn-andar">Andar 2</label>
+            <label for="andar-erro" class="btn-andar btn-perigo">Andar ?</label>
         </div>
 
-    </div>
+    </form>
 
 </body>
 </html>
