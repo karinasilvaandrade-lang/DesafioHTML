@@ -14,7 +14,7 @@ body {
 
 h1 {
     font-size: 32px;
-    color: #00ff88;            /* Cor em destaque combinando */
+    color: #00ff88;            /* Cor em destaque */
 }
 
 .descricao {
@@ -22,10 +22,10 @@ h1 {
     margin-bottom: 25px;
 }
 
-/* Tabuleiro Centralizado */
+/* Tabuleiro Centralizado com tamanho Fixo */
 .tabuleiro {
     background-color: #16213e;  /* Cor de fundo 2 */
-    width: 260px;
+    width: 260px;               /* Largura fixa para caber 2 cartas por linha */
     margin: 0 auto;             /* Centraliza o container na tela */
     padding: 20px;              /* Espaçamento interno */
     border-radius: 15px;        /* Cantos arredondados */
@@ -33,14 +33,15 @@ h1 {
     flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
+    box-sizing: border-box;
 }
 
-/* Esconde as caixinhas de controle do checkbox */
+/* Esconde os checkboxes */
 input[type="checkbox"] {
     display: none;
 }
 
-/* Estilização da Carta */
+/* Estilização da Carta com tamanho que NÃO ENCOLHE */
 .carta {
     width: 100px;
     height: 100px;
@@ -51,9 +52,11 @@ input[type="checkbox"] {
     justify-content: center;
     font-size: 40px;
     cursor: pointer;
+    box-sizing: border-box;
+    flex-shrink: 0;             /* IMPEDE A CARTA DE ENCOLHER */
 }
 
-/* Efeito :hover ao passar o mouse na carta */
+/* Efeito :hover ao passar o mouse */
 .carta:hover {
     background-color: #1f4068;
 }
@@ -63,8 +66,7 @@ input[type="checkbox"] {
     display: none;
 }
 
-/* LÓGICA DO JOGO EM CSS: */
-/* Quando o checkbox é marcado (:checked), esconde a interrogação e mostra o emoji */
+/* LÓGICA DO JOGO EM CSS */
 input[type="checkbox"]:checked + .carta .costas {
     display: none;
 }
@@ -74,5 +76,5 @@ input[type="checkbox"]:checked + .carta .frente {
 }
 
 input[type="checkbox"]:checked + .carta {
-    background-color: #00ff88;  /* Muda a cor da carta quando virada */
+    background-color: #00ff88;  /* Cor quando virada */
 }
